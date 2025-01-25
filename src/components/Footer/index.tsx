@@ -12,7 +12,6 @@ import {
   LogoContainer,
   Para,
   Large,
-  Chat,
   Empty,
   FooterContainer,
   Language,
@@ -56,9 +55,6 @@ const Footer = ({ t }: { t: TFunction }) => {
               <Para>
                 {t(`Do you have any question? Feel free to reach out.`)}
               </Para>
-              <a href="mailto:l.qqbadze@gmail.com">
-                <Chat>{t(`Let's Chat`)}</Chat>
-              </a>
             </Col>
             <Col lg={8} md={8} sm={12} xs={12}>
               <Title>{t("Policy")}</Title>
@@ -75,15 +71,13 @@ const Footer = ({ t }: { t: TFunction }) => {
             <Col lg={10} md={10} sm={12} xs={12}>
               <Empty />
               <Language>{t("Address")}</Language>
-              <Para>Rancho Santa Margarita</Para>
-              <Para>2131 Elk Street</Para>
-              <Para>California</Para>
+              <Para>{t("Kazakhstan, Astana")}</Para>
+              <Para>{t("Mangilik el")}</Para>
             </Col>
             <Col lg={8} md={8} sm={12} xs={12}>
               <Title>{t("Company")}</Title>
               <Large to="/">{t("About")}</Large>
               <Large to="/">{t("Blog")}</Large>
-              <Large to="/">{t("Press")}</Large>
               <Large to="/">{t("Careers & Culture")}</Large>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
@@ -91,7 +85,7 @@ const Footer = ({ t }: { t: TFunction }) => {
               <LanguageSwitchContainer>
                 <LanguageSwitch onClick={() => handleChange("en")}>
                   <SvgIcon
-                    src="united-states.svg"
+                    src="brits.webp"
                     aria-label="homepage"
                     width="30px"
                     height="30px"
@@ -99,7 +93,7 @@ const Footer = ({ t }: { t: TFunction }) => {
                 </LanguageSwitch>
                 <LanguageSwitch onClick={() => handleChange("es")}>
                   <SvgIcon
-                    src="spain.svg"
+                    src="russian.webp"
                     aria-label="homepage"
                     width="30px"
                     height="30px"

@@ -4,6 +4,7 @@ import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
+import { useHistory } from "react-router-dom";
 import {
   HeaderSection,
   LogoContainer,
@@ -15,12 +16,23 @@ import {
   Outline,
   Span,
 } from "./styles";
+import i18n from "i18next";
 
 const Header = ({ t }: { t: TFunction }) => {
   const [visible, setVisibility] = useState(false);
+  const history = useHistory();
 
   const toggleButton = () => {
     setVisibility(!visible);
+  };
+
+  const navigateTo = (path: string) =>{
+    history.push(path);
+    setVisibility(false);
+  }
+
+  const handleChange = (language: string) => {
+    i18n.changeLanguage(language);
   };
 
   const MenuItem = () => {
@@ -33,18 +45,18 @@ const Header = ({ t }: { t: TFunction }) => {
     };
     return (
       <>
-        <CustomNavLinkSmall onClick={() => scrollTo("about")}>
+        <CustomNavLinkSmall onClick={() => navigateTo("/about")}>
           <Span>{t("About")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("mission")}>
+        <CustomNavLinkSmall onClick={() => navigateTo("mission")}>
           <Span>{t("Mission")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("product")}>
+        <CustomNavLinkSmall onClick={() => navigateTo("product")}>
           <Span>{t("Product")}</Span>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall
           style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
+          onClick={() => scrollTo("Заполните форму")}
         >
           <Span>
             <Button>{t("Contact")}</Button>
