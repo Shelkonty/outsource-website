@@ -9,6 +9,8 @@ export const FooterSection = styled("footer")`
 export const Title = styled("h4")`
   font-size: 22px;
   text-transform: capitalize;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
   color: #18216d;
 
   @media screen and (max-width: 414px) {
@@ -21,6 +23,8 @@ export const NavLink = styled(Link)`
   font-size: 1rem;
   margin-bottom: 0.625rem;
   transition: all 0.2s ease-in-out;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
 
   &:hover,
   &:active,
@@ -47,10 +51,14 @@ export const Para = styled("div")`
   color: #18216d;
   font-size: 14px;
   width: 70%;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
 `;
 
 export const Large = styled(Link)`
   font-size: 16px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
   color: #000;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -127,27 +135,30 @@ export const FooterContainer = styled("div")`
 `;
 
 export const Language = styled("h4")`
-  font-size: 22px;
-  text-transform: capitalize;
-  color: #18216d;
+    font-size: 22px;
+    text-transform: capitalize;
+    color: #18216d;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
 
-  @media screen and (max-width: 414px) {
-    padding: 1.5rem 0;
-  }
+    @media screen and (max-width: 414px) {
+        padding: 1.5rem 0;
+    }
 `;
 
 export const Label = styled("label")`
-  font-size: 22px;
-  text-transform: capitalize;
-  color: #18216d;
-  display: block;
-  margin-bottom: 2rem;
-  font-family: "Motiva Sans Bold", serif;
+    font-size: 22px;
+    text-transform: capitalize;
+    color: #18216d;
+    display: block;
+    margin-bottom: 2rem;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
 
-  @media screen and (max-width: 414px) {
-    padding: 1.5rem 0;
-    margin-bottom: 1rem;
-  }
+    @media screen and (max-width: 414px) {
+        padding: 1.5rem 0;
+        margin-bottom: 1rem;
+    }
 `;
 
 export const LanguageSwitch = styled("div")`

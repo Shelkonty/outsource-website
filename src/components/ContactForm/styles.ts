@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    width: 100%;
     max-width: 900px;
     margin: 0 auto;
     padding: 1rem;
@@ -11,19 +12,29 @@ export const Container = styled.div`
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 1rem;
+        margin: 0 auto;
+        > div {
+            width: 100%;
+            max-width: 100%;
+        }
     }
 `;
 
 export const FormSection = styled.div`
+    width: 100%;
     max-width: 450px;
 
     @media (max-width: 768px) {
+        width: 100%;
         max-width: 100%;
+        margin: 0 auto;
     }
 
     h2 {
         font-size: 1.5rem;
         color: #17153A;
+        margin-bottom: 1rem;
 
         @media (max-width: 480px) {
             font-size: 1.25rem;

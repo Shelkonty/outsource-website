@@ -10,7 +10,6 @@ import {
     ContactLabel,
     ContactValue
 } from './styles';
-import i18n from "i18next";
 
 interface Contact {
     label: string;
@@ -42,7 +41,7 @@ const contacts: Contact[] = [
     }
 ];
 
-const SocialContactSection= ({ t }: { t: TFunction }) => {
+const SocialContactSection = ({ t }: { t: TFunction }) => {
 
     return (
         <ContactWrapper>

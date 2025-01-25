@@ -11,6 +11,16 @@ export const HeaderSection = styled("header")`
   }
 `;
 
+export const LanguageSwitch = styled("button")`
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+`;
+
 export const LogoContainer = styled(Link)`
   display: flex;
 `;

@@ -23,7 +23,8 @@ export const Title = styled.h2`
     text-align: center;
     margin-bottom: 4rem;
     color: #2E186A;
-    font-family: 'Motiva Sans Bold', serif;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
 `;
 
 export const ContactGrid = styled.div`
@@ -91,7 +92,8 @@ export const ContactLabel = styled.h3<ContactLabelProps>`
     font-size: 24px;
     margin: 0;
     color: ${props => props.color};
-    font-family: 'Motiva Sans Bold', serif;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
     transition: all 0.3s ease;
     position: ${props => props.isEmail ? 'absolute' : 'static'};
     text-align: center;
@@ -104,7 +106,8 @@ export const ContactValue = styled.p<ContactLabelProps>`
     font-size: 18px;
     margin: 0;
     color: #18216d;
-    font-family: 'Motiva Sans Light', sans-serif;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
     transition: all 0.3s ease;
     position: absolute;
     width: 100%;

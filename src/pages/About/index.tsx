@@ -4,6 +4,7 @@ import Container from '../../common/Container';
 import { Fade } from "react-awesome-reveal";
 import { ContentWrapper, CategoryButton, TechCard } from "./styles";
 import SocialContactSection from "../../components/SocialContact";
+import ServiceBlock from "../../components/ServiceBlock";
 const Contact = lazy(() => import("../../components/ContactForm"));
 
 interface Technology {
@@ -84,6 +85,7 @@ const About = () => {
                 </Fade>
 
             </ContentWrapper>
+            <ServiceBlock/>
             <Contact/>
             <SocialContactSection/>
         </Container>

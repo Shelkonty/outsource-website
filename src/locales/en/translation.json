@@ -27,5 +27,19 @@
   "Name" : "Name",
   "Your Name": "Your Name",
   "Email" : "Email",
-  "Your Email": "Your Email"
+  "Your Email": "Your Email",
+  "title": "Fill the form",
+  "subtitle": "Want to create a new website or update an existing one? Leave your contact details and we'll be happy to help you implement your project.",
+  "yourData": "Your data:",
+  "name": "What's your name?*",
+  "phone": "Phone*",
+  "siteNeeded": "What site do you need?*",
+  "details": "Project details:",
+  "whatToKnow": "What do we need to know?",
+  "submit": "Send message",
+  "landing": "Landing",
+  "businessCard": "Business card site",
+  "corporate": "Corporate website",
+  "redesign": "Website redesign",
+  "consultation": "Need consultation"
 }

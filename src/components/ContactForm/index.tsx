@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "../../common/utils/useForm";
 import validate from "../../common/utils/validationRules";
+import { withTranslation, TFunction } from "react-i18next";
 import {
   Container,
   FormSection,
@@ -11,28 +12,28 @@ import {
   TextArea, InputGroup, InputRow, ServiceSection
 } from "./styles";
 
-const Contact = () => {
+const Contact = ({ t }: { t: TFunction }) => {
   const { values, handleChange, handleSubmit } = useForm(validate);
 
   return (
       <Container>
         <div style={{alignContent: "center"}}>
           <h1 style={{ fontSize: '3.5rem', color: '#17153A', marginBottom: '1.5rem' }}>
-            ЗАПОЛНИТЕ ФОРМУ
+            {t("title")}
           </h1>
           <p style={{ color: '#6B7280', fontSize: '1.1rem', lineHeight: '1.6' }}>
-            Хотите создать новый сайт или обновить существующий? Оставьте свои контактные данные, и мы с удовольствием поможем вам реализовать ваш проект.
+            {t("subtitle")}
           </p>
         </div>
 
         <FormSection>
           <form onSubmit={handleSubmit}>
-            <h2>Ваши данные:</h2>
+            <h2>{t("yourData")}</h2>
             <InputGroup>
               <Input
                   type="text"
                   name="name"
-                  placeholder="Как вас зовут?*"
+                  placeholder={t("name")}
                   value={values.name}
                   onChange={handleChange}
               />
@@ -40,7 +41,7 @@ const Contact = () => {
                 <Input
                     type="tel"
                     name="phone"
-                    placeholder="Телефон*"
+                    placeholder={t("phone")}
                     value={values.phone}
                     onChange={handleChange}
                 />
@@ -55,45 +56,63 @@ const Contact = () => {
             </InputGroup>
 
             <ServiceSection>
-              <h2>Какой сайт вам необходим?*</h2>
+              <h2>{t("siteNeeded")}</h2>
               <ServiceButtons>
-                {["Лендинг", "Сайт-визитка", "Сайт для компании"].map(service => (
-                    <ServiceButton
-                        key={service}
-                        active={values.siteType === service}
-                        onClick={() => handleChange({
-                          target: { name: 'siteType', value: service }
-                        } as React.ChangeEvent<HTMLInputElement>)}
-                    >
-                      {service}
-                    </ServiceButton>
-                ))}
+                <ServiceButton
+                    active={values.siteType === t("landing")}
+                    onClick={() => handleChange({
+                      target: { name: 'siteType', value: t("landing") }
+                    } as React.ChangeEvent<HTMLInputElement>)}
+                >
+                  {t("landing")}
+                </ServiceButton>
+                <ServiceButton
+                    active={values.siteType === t("businessCard")}
+                    onClick={() => handleChange({
+                      target: { name: 'siteType', value: t("businessCard") }
+                    } as React.ChangeEvent<HTMLInputElement>)}
+                >
+                  {t("businessCard")}
+                </ServiceButton>
+                <ServiceButton
+                    active={values.siteType === t("corporate")}
+                    onClick={() => handleChange({
+                      target: { name: 'siteType', value: t("corporate") }
+                    } as React.ChangeEvent<HTMLInputElement>)}
+                >
+                  {t("corporate")}
+                </ServiceButton>
               </ServiceButtons>
               <ServiceButtons>
-                {["Редизайн сайта", "Нужна консультация"].map(service => (
-                    <ServiceButton
-                        key={service}
-                        active={values.siteType === service}
-                        onClick={() => handleChange({
-                          target: { name: 'siteType', value: service }
-                        } as React.ChangeEvent<HTMLInputElement>)}
-                    >
-                      {service}
-                    </ServiceButton>
-                ))}
+                <ServiceButton
+                    active={values.siteType === t("redesign")}
+                    onClick={() => handleChange({
+                      target: { name: 'siteType', value: t("redesign") }
+                    } as React.ChangeEvent<HTMLInputElement>)}
+                >
+                  {t("redesign")}
+                </ServiceButton>
+                <ServiceButton
+                    active={values.siteType === t("consultation")}
+                    onClick={() => handleChange({
+                      target: { name: 'siteType', value: t("consultation") }
+                    } as React.ChangeEvent<HTMLInputElement>)}
+                >
+                  {t("consultation")}
+                </ServiceButton>
               </ServiceButtons>
             </ServiceSection>
 
             <div>
-              <h2>Детали проекта:</h2>
+              <h2>{t("details")}</h2>
               <TextArea
                   name="details"
-                  placeholder="Что нам необходимо знать?"
+                  placeholder={t("whatToKnow")}
                   value={values.details}
                   onChange={handleChange}
               />
               <SubmitButton type="submit">
-                Отправить сообщение
+                {t("submit")}
               </SubmitButton>
             </div>
           </form>
@@ -102,4 +121,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default withTranslation()(Contact);
