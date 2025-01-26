@@ -1,35 +1,32 @@
 import React from 'react';
 import { Container, Title, StepContainer, StepBox, StepNumber, StepTitle, StepText } from './style';
+import { withTranslation, TFunction } from "react-i18next";
 
-const ProcessSection = () => {
+const ProcessSection = ({ t }: { t: TFunction }) => {
     return (
         <Container>
-            <Title>С НАМИ ПРОСТО...</Title>
-
+            <Title>{t("IT'S EASY WITH US")}</Title>
             <StepContainer>
                 <StepBox>
-                    <StepTitle>ДИЗАЙН</StepTitle>
+                    <StepTitle>{t("processDESIGN")}</StepTitle>
                     <StepText>
-                        Изучаем конкурентов, создаем концепцию, формируем дизайн и структуру.
-                        Разрабатываем удобный интерфейс.
+                        {t("We study competitors")}
                     </StepText>
                     <StepNumber>1</StepNumber>
                 </StepBox>
 
                 <StepBox>
-                    <StepTitle>РАЗРАБОТКА</StepTitle>
+                    <StepTitle>{t("DEVELOPMENT")}</StepTitle>
                     <StepText>
-                        Реализуем дизайн в рабочий сайт, добавляем функционал и интерактивность.
-                        Оптимизируем для поисковых систем (SEO).
+                        {t("We implement")}
                     </StepText>
                     <StepNumber>2</StepNumber>
                 </StepBox>
 
                 <StepBox>
-                    <StepTitle>ЗАПУСК</StepTitle>
+                    <StepTitle>{t("LAUNCH")}</StepTitle>
                     <StepText>
-                        Проводим тестирование, запускаем сайт и передаем права доступа.
-                        При необходимости настраиваем рекламу.
+                        {t("We conduct")}
                     </StepText>
                     <StepNumber>3</StepNumber>
                 </StepBox>
@@ -38,4 +35,4 @@ const ProcessSection = () => {
     );
 };
 
-export default ProcessSection;
+export default withTranslation()(ProcessSection);

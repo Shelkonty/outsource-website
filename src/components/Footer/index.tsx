@@ -73,7 +73,7 @@ const Footer = ({ t }: { t: TFunction }) => {
                       height="30px"
                   />
                 </LanguageSwitch>
-                <LanguageSwitch onClick={() => handleChange("es")}>
+                <LanguageSwitch onClick={() => handleChange("ru")}>
                   <SvgIcon
                       src="russian.webp"
                       aria-label="homepage"
@@ -95,9 +95,7 @@ const Footer = ({ t }: { t: TFunction }) => {
             <Col lg={8} md={8} sm={12} xs={12}>
               <Empty/>
               <Title>{t("Company")}</Title>
-              <Large to="/">{t("About")}</Large>
-              <Large to="/">{t("Blog")}</Large>
-              <Large to="/">{t("Careers & Culture")}</Large>
+              <Large to="/about">{t("About")}</Large>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}></Col>
           </Row>

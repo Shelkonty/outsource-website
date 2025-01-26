@@ -23,20 +23,20 @@ const contacts: Contact[] = [
     {
         label: 'Telegram',
         color: '#0088cc',
-        href: 'https://t.me/+79819500636',
+        href: 'https://t.me/+77782990913',
         isEmail: false
     },
     {
         label: 'WhatsApp',
         color: '#25D366',
-        href: 'https://wa.me/79819500636',
+        href: 'https://wa.me/77782990913',
         isEmail: false
     },
     {
         label: 'Email',
-        value: 'primexstudio@mail.ru',
+        value: 'shelkonty@gmail.com',
         color: '#EA4335',
-        href: 'mailto:primexstudio@mail.ru',
+        href: 'mailto:shelkonty@gmail.com',
         isEmail: true
     }
 ];

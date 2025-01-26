@@ -3,13 +3,21 @@ import styled from 'styled-components';
 export const ContentWrapper = styled.div`
     padding: 5rem 0;
     text-align: center;
-
+    h6 {
+        font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 400;
+    }
+    
     .categories {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
         justify-content: center;
         margin: 2rem 0 3rem;
+        @media (max-width: 480px) {
+            justify-content: flex-start;
+            gap: 1rem;
+        }
     }
 `;
 
@@ -60,7 +68,7 @@ export const TechCard = styled.div`
 
     h3 {
         margin: 0;
-        color: #2E186A;
+        color: #000;
         font-size: 1.125rem;
     }
 `;

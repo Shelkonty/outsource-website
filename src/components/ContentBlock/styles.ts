@@ -12,6 +12,9 @@ export const ContentSection = styled("section")`
 
 export const Content = styled("p")`
   margin: 1.5rem 0 2rem 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+    
 `;
 
 export const StyledRow = styled(Row)`
@@ -22,6 +25,10 @@ export const StyledRow = styled(Row)`
 export const ContentWrapper = styled("div")`
   position: relative;
   max-width: 540px;
+    h6{
+        font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 600;
+    }
 
   @media only screen and (max-width: 575px) {
     padding-top: 4rem;

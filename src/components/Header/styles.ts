@@ -68,6 +68,8 @@ export const Menu = styled("h5")`
 `;
 
 export const CustomNavLinkSmall = styled(NavLink)`
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
   font-size: 1.2rem;
   color: #18216d;
   transition: color 0.2s ease-in;

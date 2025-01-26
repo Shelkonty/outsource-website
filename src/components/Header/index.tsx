@@ -48,8 +48,8 @@ const Header = ({ t }: { t: TFunction }) => {
           <CustomNavLinkSmall onClick={() => navigateTo("/about")}>
             <Span>{t("About")}</Span>
           </CustomNavLinkSmall>
-          <CustomNavLinkSmall onClick={() => navigateTo("mission")}>
-            <Span>{t("Mission")}</Span>
+          <CustomNavLinkSmall onClick={() => navigateTo("/brief")}>
+            <Span>{t("Brief")}</Span>
           </CustomNavLinkSmall>
           <CustomNavLinkSmall onClick={() => navigateTo("product")}>
             <Span>{t("Product")}</Span>
@@ -71,7 +71,7 @@ const Header = ({ t }: { t: TFunction }) => {
                   height="24px"
               />
             </LanguageSwitch>
-            <LanguageSwitch onClick={() => handleChange("es")}>
+            <LanguageSwitch onClick={() => handleChange("ru")}>
               <SvgIcon
                   src="russian.webp"
                   aria-label="Russian"
