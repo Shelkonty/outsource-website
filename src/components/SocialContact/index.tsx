@@ -23,7 +23,7 @@ const contacts: Contact[] = [
     {
         label: 'Telegram',
         color: '#0088cc',
-        href: 'https://t.me/+77782990913',
+        href: 'https://web.telegram.org/k/#@contact_information_beta_bot',
         isEmail: false
     },
     {
