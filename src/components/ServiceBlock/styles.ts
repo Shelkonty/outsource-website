@@ -10,6 +10,8 @@ export const Title = styled.h2`
   font-size: 32px;
   text-align: center;
   margin-bottom: 20px;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
 `;
 
 export const Description = styled.p`
@@ -18,6 +20,8 @@ export const Description = styled.p`
   margin-bottom: 40px;
   max-width: 800px;
   margin: 0 auto 40px;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
 `;
 
 export const ServiceCard = styled.div`
@@ -30,6 +34,8 @@ export const ServiceCard = styled.div`
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
 
   &:hover {
     transform: translateY(-5px);
@@ -40,11 +46,15 @@ export const Duration = styled.div`
   color: #666;
   font-size: 14px;
   margin-bottom: 15px;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
 `;
 
 export const ServiceTitle = styled.h3`
   font-size: 24px;
   margin-bottom: 15px;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: bold;
 `;
 
 export const Price = styled.div`
@@ -58,6 +68,8 @@ export const ServiceDescription = styled.p`
   color: #666;
   margin-bottom: 20px;
   flex-grow: 1;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
 `;
 
 export const Features = styled.div`
@@ -65,6 +77,8 @@ export const Features = styled.div`
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 20px;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
 `;
 
 export const Feature = styled.span`
@@ -72,19 +86,6 @@ export const Feature = styled.span`
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 14px;
-`;
-
-export const Button = styled.button`
-  width: 100%;
-  padding: 12px;
-  background: #1890ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-
-  &:hover {
-    background: #40a9ff;
-  }
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
 `;

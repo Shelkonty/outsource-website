@@ -13,6 +13,11 @@ const routes = [
     path: "/privacy-policy",
     exact: true,
     component: "Policy",
+  },
+  {
+    path: "/software-policy",
+    exact: true,
+    component: "SoftwarePolicy",
   }
 ];
 
