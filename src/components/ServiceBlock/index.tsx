@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import { Fade } from 'react-awesome-reveal';
 import * as S from './styles';
 
 const services = [

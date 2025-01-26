@@ -19,6 +19,8 @@ import {
   LanguageSwitch,
   LanguageSwitchContainer,
 } from "./styles";
+import {CustomNavLinkSmall, Span} from "../Header/styles";
+import {useHistory} from "react-router-dom";
 
 interface SocialLinkProps {
   href: string;
@@ -26,8 +28,14 @@ interface SocialLinkProps {
 }
 
 const Footer = ({ t }: { t: TFunction }) => {
+  const history = useHistory();
+
   const handleChange = (language: string) => {
     i18n.changeLanguage(language);
+  };
+
+  const navigateTo = (path: string) => {
+    history.push(path);
   };
 
   const SocialLink = ({ href, src }: SocialLinkProps) => {
@@ -58,7 +66,7 @@ const Footer = ({ t }: { t: TFunction }) => {
             </Col>
             <Col lg={8} md={8} sm={12} xs={12}>
               <Title>{t("Policy")}</Title>
-              <Large to="/">{t("Application Security")}</Large>
+              <Large to="/privacy-policy">{t("Privacy Policy")}</Large>
               <Large to="/">{t("Software Principles")}</Large>
               <Large to="/">{t("Support Center")}</Large>
             </Col>

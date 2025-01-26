@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Fade } from "react-awesome-reveal";
 import { withTranslation, TFunction } from "react-i18next";
 import { Container, Title, Section, SectionTitle, SectionText } from './styles';
 

@@ -8,6 +8,11 @@ const routes = [
     path: "/about",
     exact: true,
     component: "About",
+  },
+  {
+    path: "/privacy-policy",
+    exact: true,
+    component: "Policy",
   }
 ];
 
