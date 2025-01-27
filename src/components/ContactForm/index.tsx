@@ -31,13 +31,18 @@ const Contact = ({ t }: { t: TFunction }) => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
+                credentials: 'include',
                 body: JSON.stringify(values)
             });
 
             if (response.ok) {
                 setShowSuccess(true);
                 setTimeout(() => setShowSuccess(false), 3000);
+            } else {
+                const errorData = await response.json();
+                console.error('Server error:', errorData);
             }
         } catch (error) {
             console.error('Error:', error);
