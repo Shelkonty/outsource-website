@@ -62,7 +62,7 @@ const Contact = ({ t }: { t: TFunction }) => {
 
             <FormSection>
                 <form onSubmit={submitForm}>
-                    <h2>{t("yourData")}</h2>
+                    <h2 id="titleForContactScroll" >{t("yourData")}</h2>
                     <InputGroup>
                         <Input
                             type="text"
