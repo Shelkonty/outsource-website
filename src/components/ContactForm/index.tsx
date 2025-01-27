@@ -27,7 +27,7 @@ const Contact = ({ t }: { t: TFunction }) => {
         }
 
         try {
-            const response = await fetch('https://backend-4qzftmag9-shelkonty-e4379af9.vercel.app', {
+            const response = await fetch('https://backend-emzckjcg7-shelkonty-e4379af9.vercel.app', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
