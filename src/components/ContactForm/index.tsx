@@ -22,30 +22,37 @@ const Contact = ({ t }: { t: TFunction }) => {
     const submitForm = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!values.name || !values.phone || !values.email || !values.siteType || !values.details) {
-            return;
-        }
+        const formData = {
+            name: values.name,
+            phone: values.phone,
+            email: values.email,
+            siteType: values.siteType,
+            details: values.details
+        };
 
         try {
-            const response = await fetch('https://backend-eosin-beta.vercel.app/api/consultation', {
+            const response = await fetch('http://localhost:5000/api/consultation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
                 credentials: 'include',
-                body: JSON.stringify(values)
+                body: JSON.stringify(formData)
             });
 
             if (response.ok) {
                 setShowSuccess(true);
                 setTimeout(() => setShowSuccess(false), 3000);
-            } else {
-                const errorData = await response.json();
-                console.error('Server error:', errorData);
+                handleChange({
+                    target: {
+                        name: 'name',
+                        value: ''
+                    }
+                } as React.ChangeEvent<HTMLInputElement>);
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error details:', error);
         }
     };
 

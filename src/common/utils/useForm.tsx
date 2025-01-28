@@ -29,11 +29,41 @@ export const useForm = (validate: { (values: IValues): IValues }) => {
     setFormState(prev => ({ ...prev, errors }));
 
     if (Object.values(errors).every(error => error === "")) {
-      notification.success({
-        message: "Успешно",
-        description: "Ваше сообщение отправлено!",
+      try {
+        const response = await fetch('http://localhost:5000/api/consultation', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify(formState.values)
+        });
+
+        if (response.ok) {
+          notification.success({
+            message: "Успешно",
+            description: "Ваше сообщение отправлено!",
+          });
+          setFormState({ values: { ...initialValues }, errors: { ...initialValues } });
+        } else {
+          const errorData = await response.json();
+          notification.error({
+            message: "Ошибка",
+            description: errorData.message || "Произошла ошибка при отправке формы",
+          });
+        }
+      } catch (error) {
+        console.error('Error sending form:', error);
+        notification.error({
+          message: "Ошибка",
+          description: "Не удалось отправить форму. Пожалуйста, попробуйте позже.",
+        });
+      }
+    } else {
+      notification.warning({
+        message: "Внимание",
+        description: "Пожалуйста, заполните все обязательные поля",
       });
-      setFormState({ values: { ...initialValues }, errors: { ...initialValues } });
     }
   };
 
