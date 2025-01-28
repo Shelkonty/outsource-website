@@ -18,12 +18,10 @@ import {SiteType, siteTypeMap} from "./types";
 
 const Contact = ({ t }: { t: TFunction }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [error, setError] = useState<string | null>(null);
     const { values, handleChange } = useForm(validate);
 
     const submitForm = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError(null);
 
         const translationKey = Object.keys(siteTypeMap).find(
             key => t(key) === values.siteType
@@ -40,7 +38,7 @@ const Contact = ({ t }: { t: TFunction }) => {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/api/consultation', {
+            const response = await fetch('https://backend-eosin-beta.vercel.app/api/consultation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -64,14 +62,8 @@ const Contact = ({ t }: { t: TFunction }) => {
                         } as React.ChangeEvent<HTMLInputElement>);
                     });
                 }, 600);
-            } else {
-                const errorData = await response.json().catch(() => null);
-                const errorMessage = errorData?.message || response.statusText || 'An error occurred';
-                setError(errorMessage);
             }
-        } catch (error) {
-            setError('Failed to submit form. Please try again.');
-        }
+        } catch (error) {}
     };
 
     const handleSiteTypeChange = (type: SiteType) => {
@@ -87,17 +79,6 @@ const Contact = ({ t }: { t: TFunction }) => {
 
     return (
         <Container>
-            {error && (
-                <div style={{
-                    color: 'red',
-                    backgroundColor: '#FFEBEE',
-                    padding: '1rem',
-                    marginBottom: '1rem',
-                    borderRadius: '4px'
-                }}>
-                    {error}
-                </div>
-            )}
             <div style={{alignContent: "center"}}>
                 <h1 style={{ fontSize: '3.5rem', color: '#17153A', marginBottom: '1.5rem' }}>
                     {t("title")}
