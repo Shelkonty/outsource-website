@@ -2,7 +2,6 @@ import React from 'react';
 import {TFunction, withTranslation} from 'react-i18next';
 import { Row, Col } from "antd";
 import Container from "../../common/Container";
-import Footer from "../../components/Footer";
 import {
     PolicyWrapper,
     PolicyContainer,
@@ -36,7 +35,7 @@ const PrivacyPolicy = ({ t }: { t: TFunction }) => {
                                 </PolicyText>
 
                                 <PolicyText>
-                                    'Персональные данные' - означает совокупность личных данных и/или неперсонифицированной информации о Пользователе, предоставляемую им самим Правообладателю и/или автоматически собираемую Правообладателем и/или третьими лицами.
+                                    'Персональные данные' - означает совокупность личных данных и/или Неперсонализированный информации о Пользователе, предоставляемую им самим Правообладателю и/или автоматически собираемую Правообладателем и/или третьими лицами.
                                 </PolicyText>
 
                                 <PolicyText>
@@ -105,7 +104,7 @@ const PrivacyPolicy = ({ t }: { t: TFunction }) => {
 
                                 <SectionTitle>3. Перечень собираемых персональных данных</SectionTitle>
 
-                                <PolicyTitle>Неперсонифицированная информация о пользователях</PolicyTitle>
+                                <PolicyTitle>Индивидуальная информация о пользователях</PolicyTitle>
                                 <PolicyText>
                                     В связи с использованием Сайта Правообладатель может автоматически собирать и обрабатывать следующею неперсонифицированную информацию о Пользователе:
                                 </PolicyText>

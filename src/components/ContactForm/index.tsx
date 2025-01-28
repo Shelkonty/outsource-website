@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useForm } from "../../common/utils/useForm";
 import validate from "../../common/utils/validationRules";
 import { withTranslation, TFunction } from "react-i18next";
@@ -12,26 +12,35 @@ import {
     TextArea,
     InputGroup,
     InputRow,
-    ServiceSection, SuccessMessage
+    ServiceSection
 } from "./styles";
+import {SiteType, siteTypeMap} from "./types";
 
 const Contact = ({ t }: { t: TFunction }) => {
-    const [showSuccess, setShowSuccess] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const { values, handleChange } = useForm(validate);
 
     const submitForm = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError(null);
+
+        const translationKey = Object.keys(siteTypeMap).find(
+            key => t(key) === values.siteType
+        ) as SiteType | undefined;
+
+        const englishSiteType = translationKey ? siteTypeMap[translationKey] : values.siteType;
 
         const formData = {
             name: values.name,
             phone: values.phone,
             email: values.email,
-            siteType: values.siteType,
+            siteType: englishSiteType,
             details: values.details
         };
 
         try {
-            const response = await fetch('https://backend-eosin-beta.vercel.app/api/consultation', {
+            const response = await fetch('http://localhost:5000/api/consultation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -42,26 +51,52 @@ const Contact = ({ t }: { t: TFunction }) => {
             });
 
             if (response.ok) {
-                setShowSuccess(true);
-                setTimeout(() => setShowSuccess(false), 3000);
-                handleChange({
-                    target: {
-                        name: 'name',
-                        value: ''
-                    }
-                } as React.ChangeEvent<HTMLInputElement>);
+                setIsSubmitted(true);
+
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    ['name', 'phone', 'email', 'siteType', 'details'].forEach(field => {
+                        handleChange({
+                            target: {
+                                name: field,
+                                value: ''
+                            }
+                        } as React.ChangeEvent<HTMLInputElement>);
+                    });
+                }, 600);
+            } else {
+                const errorData = await response.json().catch(() => null);
+                const errorMessage = errorData?.message || response.statusText || 'An error occurred';
+                setError(errorMessage);
             }
         } catch (error) {
-            console.error('Error details:', error);
+            setError('Failed to submit form. Please try again.');
         }
+    };
+
+    const handleSiteTypeChange = (type: SiteType) => {
+        const translatedValue = t(type);
+
+        handleChange({
+            target: {
+                name: 'siteType',
+                value: translatedValue
+            }
+        } as React.ChangeEvent<HTMLInputElement>);
     };
 
     return (
         <Container>
-            {showSuccess && (
-                <SuccessMessage>
-                    {t("messageSuccess")}
-                </SuccessMessage>
+            {error && (
+                <div style={{
+                    color: 'red',
+                    backgroundColor: '#FFEBEE',
+                    padding: '1rem',
+                    marginBottom: '1rem',
+                    borderRadius: '4px'
+                }}>
+                    {error}
+                </div>
             )}
             <div style={{alignContent: "center"}}>
                 <h1 style={{ fontSize: '3.5rem', color: '#17153A', marginBottom: '1.5rem' }}>
@@ -74,7 +109,7 @@ const Contact = ({ t }: { t: TFunction }) => {
 
             <FormSection>
                 <form onSubmit={submitForm}>
-                    <h2 id="titleForContactScroll" >{t("yourData")}</h2>
+                    <h2 id="titleForContactScroll">{t("yourData")}</h2>
                     <InputGroup>
                         <Input
                             type="text"
@@ -82,6 +117,7 @@ const Contact = ({ t }: { t: TFunction }) => {
                             placeholder={t("name")}
                             value={values.name || ''}
                             onChange={handleChange}
+                            required
                         />
                         <InputRow>
                             <Input
@@ -90,6 +126,7 @@ const Contact = ({ t }: { t: TFunction }) => {
                                 placeholder={t("phone")}
                                 value={values.phone || ''}
                                 onChange={handleChange}
+                                required
                             />
                             <Input
                                 type="email"
@@ -97,6 +134,7 @@ const Contact = ({ t }: { t: TFunction }) => {
                                 placeholder="E-mail"
                                 value={values.email || ''}
                                 onChange={handleChange}
+                                required
                             />
                         </InputRow>
                     </InputGroup>
@@ -104,26 +142,24 @@ const Contact = ({ t }: { t: TFunction }) => {
                     <ServiceSection>
                         <h2>{t("siteNeeded")}</h2>
                         <ServiceButtons>
-                            {['landing', 'businessCard', 'corporate'].map(type => (
+                            {(['landing', 'businessCard', 'corporate'] as const).map(type => (
                                 <ServiceButton
                                     key={type}
                                     active={values.siteType === t(type)}
-                                    onClick={() => handleChange({
-                                        target: { name: 'siteType', value: t(type) }
-                                    } as React.ChangeEvent<HTMLInputElement>)}
+                                    onClick={() => handleSiteTypeChange(type)}
+                                    type="button"
                                 >
                                     {t(type)}
                                 </ServiceButton>
                             ))}
                         </ServiceButtons>
                         <ServiceButtons>
-                            {['redesign', 'consultation'].map(type => (
+                            {(['redesign', 'consultation'] as const).map(type => (
                                 <ServiceButton
                                     key={type}
                                     active={values.siteType === t(type)}
-                                    onClick={() => handleChange({
-                                        target: { name: 'siteType', value: t(type) }
-                                    } as React.ChangeEvent<HTMLInputElement>)}
+                                    onClick={() => handleSiteTypeChange(type)}
+                                    type="button"
                                 >
                                     {t(type)}
                                 </ServiceButton>
@@ -138,9 +174,10 @@ const Contact = ({ t }: { t: TFunction }) => {
                             placeholder={t("whatToKnow")}
                             value={values.details || ''}
                             onChange={handleChange}
+                            required
                         />
-                        <SubmitButton type="submit">
-                            {t("submit")}
+                        <SubmitButton type="submit" isSubmitted={isSubmitted}>
+                            {isSubmitted ? t("messageSuccess") : t("submit")}
                         </SubmitButton>
                     </div>
                 </form>

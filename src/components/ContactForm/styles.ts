@@ -118,13 +118,14 @@ export const TextArea = styled.textarea`
     }
 `;
 
-export const SubmitButton = styled.button`
+export const SubmitButton = styled.button<{ isSubmitted: boolean }>`
     width: 100%;
     padding: 0.75rem;
-    background: #46278f;
+    background: ${props => props.isSubmitted ? '#4BB543' : '#46278f'};
     border-radius: 8px;
     color: white;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 `;
 
 export const SuccessMessage = styled.div`

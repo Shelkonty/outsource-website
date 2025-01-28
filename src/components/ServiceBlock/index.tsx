@@ -31,6 +31,83 @@ const services = [
         price: "ads.price",
         description: "ads.description",
         features: ["ads.features.quickStart", "ads.features.targeting", "ads.features.analytics", "ads.features.optimization"]
+    },
+    {
+        title: "software.title",
+        duration: "software.duration",
+        price: "software.price",
+        description: "software.description",
+        features: ["software.features.quality", "software.features.scalable", "software.features.custom", "software.features.support"]
+    },
+    {
+        title: "integration.title",
+        duration: "integration.duration",
+        price: "integration.price",
+        description: "integration.description",
+        features: ["integration.features.seamless", "integration.features.optimization", "integration.features.automation", "integration.features.efficiency"]
+    },
+    {
+        title: "support.title",
+        duration: "support.duration",
+        price: "support.price",
+        description: "support.description",
+        features: ["support.features.247", "support.features.monitoring", "support.features.updates", "support.features.maintenance"]
+    },
+    {
+        title: "mvp.title",
+        duration: "mvp.duration",
+        price: "mvp.price",
+        description: "mvp.description",
+        features: ["mvp.features.fast", "mvp.features.core", "mvp.features.testing", "mvp.features.iteration"]
+    },
+    {
+        title: "consulting.title",
+        duration: "consulting.duration",
+        price: "consulting.price",
+        description: "consulting.description",
+        features: ["consulting.features.analysis", "consulting.features.strategy", "consulting.features.expertise", "consulting.features.solutions"]
+    },
+    {
+        title: "iot.title",
+        duration: "iot.duration",
+        price: "iot.price",
+        description: "iot.description",
+        features: ["iot.features.smart", "iot.features.connectivity", "iot.features.monitoring", "iot.features.analytics"]
+    },
+    {
+        title: "infrastructure.title",
+        duration: "infrastructure.duration",
+        price: "infrastructure.price",
+        description: "infrastructure.description",
+        features: ["infrastructure.features.reliability", "infrastructure.features.security", "infrastructure.features.scalability", "infrastructure.features.support"]
+    },
+    {
+        title: "outsourcing.title",
+        duration: "outsourcing.duration",
+        price: "outsourcing.price",
+        description: "outsourcing.description",
+        features: ["outsourcing.features.efficiency", "outsourcing.features.cost", "outsourcing.features.expertise", "outsourcing.features.flexibility"]
+    },
+    {
+        title: "custom.title",
+        duration: "custom.duration",
+        price: "custom.price",
+        description: "custom.description",
+        features: ["custom.features.unique", "custom.features.adaptation", "custom.features.integration", "custom.features.support"]
+    },
+    {
+        title: "mobile.title",
+        duration: "mobile.duration",
+        price: "mobile.price",
+        description: "mobile.description",
+        features: ["mobile.features.native", "mobile.features.ux", "mobile.features.performance", "mobile.features.updates"]
+    },
+    {
+        title: "web.title",
+        duration: "web.duration",
+        price: "web.price",
+        description: "web.description",
+        features: ["web.features.responsive", "web.features.modern", "web.features.seo", "web.features.performance"]
     }
 ];
 
