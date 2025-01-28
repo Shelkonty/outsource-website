@@ -12,7 +12,7 @@ import {
     TextArea,
     InputGroup,
     InputRow,
-    ServiceSection
+    ServiceSection, Subtitle, TitleSection, Title
 } from "./styles";
 import {SiteType, siteTypeMap} from "./types";
 
@@ -61,7 +61,7 @@ const Contact = ({ t }: { t: TFunction }) => {
                             }
                         } as React.ChangeEvent<HTMLInputElement>);
                     });
-                }, 600);
+                }, 1200);
             }
         } catch (error) {}
     };
@@ -79,14 +79,14 @@ const Contact = ({ t }: { t: TFunction }) => {
 
     return (
         <Container>
-            <div style={{alignContent: "center"}}>
-                <h1 style={{ fontSize: '3.5rem', color: '#17153A', marginBottom: '1.5rem' }}>
+            <TitleSection>
+                <Title>
                     {t("title")}
-                </h1>
-                <p style={{ color: '#6B7280', fontSize: '1.1rem', lineHeight: '1.6' }}>
+                </Title>
+                <Subtitle>
                     {t("subtitle")}
-                </p>
-            </div>
+                </Subtitle>
+            </TitleSection>
 
             <FormSection>
                 <form onSubmit={submitForm}>

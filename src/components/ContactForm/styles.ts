@@ -1,5 +1,30 @@
 import styled from "styled-components";
 
+export const TitleSection = styled.div`
+    text-align: center;
+    align-content: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+`;
+
+export const Title = styled.h1`
+    font-size: 3.5rem;
+    color: #17153A;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    
+    @media (max-width: 768px) {
+        font-size: 2.5rem;
+    }
+`;
+
+export const Subtitle = styled.p`
+    color: #6B7280;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+`;
+
 export const Container = styled.div`
     width: 100%;
     max-width: 900px;
@@ -126,28 +151,4 @@ export const SubmitButton = styled.button<{ isSubmitted: boolean }>`
     color: white;
     font-size: 16px;
     transition: background-color 0.3s ease;
-`;
-
-export const SuccessMessage = styled.div`
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #4BB543;
-  color: white;
-  padding: 16px 24px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  animation: slideIn 0.3s ease-out;
-  z-index: 1000;
-
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
 `;
