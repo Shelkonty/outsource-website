@@ -37,6 +37,7 @@ const Contact = ({ t }: { t: TFunction }) => {
             details: values.details
         };
 
+
         try {
             const response = await fetch('https://backend-eosin-beta.vercel.app/api/consultation', {
                 method: 'POST',
