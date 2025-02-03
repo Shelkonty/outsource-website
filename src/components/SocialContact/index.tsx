@@ -23,20 +23,20 @@ const contacts: Contact[] = [
     {
         label: 'Telegram',
         color: '#0088cc',
-        href: 'https://web.telegram.org/k/#@contact_information_beta_bot',
+        href: 'https://web.telegram.org/k/#@ByteLabK',
         isEmail: false
     },
     {
         label: 'WhatsApp',
         color: '#25D366',
-        href: 'https://wa.me/77782990913',
+        href: 'https://wa.me/+996503848452',
         isEmail: false
     },
     {
         label: 'Email',
-        value: 'shelkonty@gmail.com',
+        value: 'byte.lab.00@bk.ru',
         color: '#EA4335',
-        href: 'mailto:shelkonty@gmail.com',
+        href: 'mailto:byte.lab.00@bk.ru',
         isEmail: true
     }
 ];
