@@ -37,6 +37,7 @@ const Contact = ({ t }: { t: TFunction }) => {
             details: values.details
         };
 
+
         try {
             const response = await fetch('http://2.56.177.66:5000/api/consultation', {
                 method: 'POST',
@@ -44,7 +45,6 @@ const Contact = ({ t }: { t: TFunction }) => {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                mode: 'cors',  // Enable CORS
                 credentials: 'include',
                 body: JSON.stringify(formData)
             });
@@ -63,12 +63,8 @@ const Contact = ({ t }: { t: TFunction }) => {
                         } as React.ChangeEvent<HTMLInputElement>);
                     });
                 }, 1200);
-            } else {
-                console.error('Server response not OK:', await response.text());
             }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-        }
+        } catch (error) {}
     };
 
     const handleSiteTypeChange = (type: SiteType) => {
