@@ -39,7 +39,7 @@ const Contact = ({ t }: { t: TFunction }) => {
 
 
         try {
-            const response = await fetch('https://2.56.177.66:5000/api/consultation', {
+            const response = await fetch('http://2.56.177.66:5000/api/consultation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
